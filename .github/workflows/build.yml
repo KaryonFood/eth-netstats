@@ -16,7 +16,7 @@ jobs:
       - name: Set up Node.js 12
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
+          node-version: "12.x"
 
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -40,10 +40,10 @@ jobs:
         env:
           CI: false
 
-          - name: Build and push Docker images
-          uses: docker/build-push-action@v1.1.0
-          with:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_PASSWORD }}
-            repository: karyonfood/ethstats-client
-            tags: latest,master
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1.1.0
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          repository: karyonfood/eth-netstats
+          tags: latest,master
